@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clippy AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title Bar -->
+        <div class="title-bar" id="titleBar">
+            <div class="title">
+                <span class="icon">🤖</span>
+                <span>Clippy AI</span>
+            </div>
+            <div class="window-controls">
+                <button id="settingsBtn" class="control-btn" title="Settings">⚙️</button>
+                <button id="hideBtn" class="control-btn" title="Hide (Ctrl+Shift+Space)">👁️</button>
+                <button id="minimizeBtn" class="control-btn" title="Minimize">−</button>
+                <button id="closeBtn" class="control-btn close" title="Close">×</button>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel" style="display: none;">
+            <h3>Settings</h3>
+            <div class="setting-group">
+                <label for="apiKey">OpenAI API Key:</label>
+                <input type="password" id="apiKey" placeholder="sk-...">
+                <button id="saveApiKey">Save Key</button>
+            </div>
+            <div class="setting-group">
+                <label for="promptStyle">Assistant Style:</label>
+                <select id="promptStyle">
+                    <option value="helpful">Helpful Assistant</option>
+                    <option value="concise">Concise & Direct</option>
+                    <option value="friendly">Friendly & Casual</option>
+                    <option value="professional">Professional</option>
+                    <option value="creative">Creative & Fun</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="alwaysOnTop" checked>
+                    Always on top
+                </label>
+            </div>
+            <div class="setting-group">
+                <button id="clearHistory">Clear Chat History</button>
+            </div>
+            <button id="closeSettings">Close Settings</button>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <div class="messages" id="messages"></div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <textarea id="userInput"
+                placeholder="Ask me anything or try: 'open google.com', 'summarize clipboard', 'calculate 2+2'"
+                rows="2"></textarea>
+            <button id="sendBtn" title="Send (Enter)">➤</button>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar" id="statusBar">
+            <span class="status-text" id="statusText">Ready</span>
+            <span class="command-hint">Ctrl+Shift+Space to hide/show | Commands: open [url] | summarize |
+                calculate</span>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
